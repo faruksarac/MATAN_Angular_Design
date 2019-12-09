@@ -1,0 +1,6 @@
+.signup-button{
+  background: rgb(246,64,255);
+  background: linear-gradient(50deg, rgba(246,64,255,1) 11%, rgba(255,136,86,1) 78%);
+  border-radius: 10px;
+  color: white;
+}

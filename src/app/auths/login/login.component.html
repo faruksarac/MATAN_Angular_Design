@@ -1,0 +1,32 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box" >
+    <div mat-card-image class="image card-img"></div>
+    <mat-card-header>
+      <mat-card-title style="color: #6124d6;">Log in</mat-card-title>
+    </mat-card-header>
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password">
+        </mat-form-field>
+        <mat-slide-toggle
+          class="example-margin"
+          [color]="primary"
+          [checked]="checked"
+          [disabled]="disabled">
+          Remember me!
+        </mat-slide-toggle>
+      </mat-card-content>
+      <div>
+        <button mat-raised-button  class="btn-block login-button"  routerLink="/sms">Log in</button>
+      </div>
+    </form>
+    <mat-card-content class="mt-5 ml-1 row">
+      Don't have an account?
+      <button mat-stroked-button color="#6124d6" routerLink="/signup" routerLinkActive="active" style="border-radius: 10px">Register</button>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,7 @@
+.sorry-text{
+  justify-content: center;
+  display: flex;
+}
+.img-box{
+  max-height: 50vh;
+}

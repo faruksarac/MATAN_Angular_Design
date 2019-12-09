@@ -1,0 +1,74 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Basic">
+    <mat-card style="min-height: 690px;">
+      <div class="basic-box" cdkDrag>
+        Drag me around
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Axis Lock">
+    <mat-card style="min-height: 690px;">
+      <div class="basic-box" cdkDragLockAxis="y" cdkDrag>
+        I can only be dragged up/down
+      </div>
+
+      <div class="basic-box" cdkDragLockAxis="x" cdkDrag>
+        I can only be dragged left/right
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Boundary">
+    <mat-card style="min-height: 690px;">
+      <div class="basic-boundary">
+        <div class="basic-box" cdkDragBoundary=".basic-boundary" cdkDrag>
+          I can only be dragged within the dotted container
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Connected Sorting">
+    <mat-card style="min-height: 690px;">
+      <div class="todo-container">
+        <h2>To do</h2>
+        <div
+          cdkDropList
+          #todoList="cdkDropList"
+          [cdkDropListData]="todo"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="todo-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="todo-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+          <div class="todo-box">
+            <mat-icon>add</mat-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="todo-container">
+        <h2>Done</h2>
+        <div
+          cdkDropList
+          #doneList="cdkDropList"
+          [cdkDropListData]="done"
+          [cdkDropListConnectedTo]="[todoList]"
+          class="todo-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="todo-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Handle">
+    <mat-card style="min-height:690px;">
+      <div class="handle-box" cdkDrag>
+        I can only be dragged using the handle
+        <div class="handle-handle" cdkDragHandle>
+          <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,10 @@
+@media (min-width:1025px){
+  .card-grid{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, 900px);
+  }
+}
+.card-margin{
+  margin-bottom: 10px; margin-right:10px;
+}

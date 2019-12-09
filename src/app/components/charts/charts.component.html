@@ -1,0 +1,69 @@
+<div class="card-grid">
+  <div>
+    <mat-card class="card-margin" cdkDrag cdkDragBoundary=".card-grid">
+      <mat-card-title>
+        BAR CHART
+      </mat-card-title>
+      <mat-card-content>
+        <div style=" display: block;">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType">
+          </canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card-margin" cdkDrag cdkDragBoundary=".card-grid">
+      <mat-card-title>
+        PIE CHART
+      </mat-card-title>
+      <mat-card-content>
+        <div style="display: block">
+          <canvas baseChart
+                  [data]="pieChartData"
+                  [labels]="pieChartLabels"
+                  [chartType]="pieChartType"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card-margin" cdkDrag cdkDragBoundary=".card-grid">
+      <mat-card-title>
+        DOUGHNUT CHART
+      </mat-card-title>
+      <mat-card-content>
+        <div style="display: block; position: relative;
+          min-height: unset;" >
+          <canvas baseChart
+                  [data]="doughnutChartData"
+                  [labels]="doughnutChartLabels"
+                  [chartType]="doughnutChartType"
+                  [options]="barChartOptions"></canvas>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card cdkDrag cdkDragBoundary=".card-grid" class="card-margin">
+      <mat-card-title>
+        LINE CHART
+      </mat-card-title>
+      <mat-card-content>
+        <canvas baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>

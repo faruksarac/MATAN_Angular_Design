@@ -1,0 +1,153 @@
+<div class="flex-container-card">
+  <mat-card class="card-margin">
+    <mat-card-title>
+      Simple Form
+    </mat-card-title>
+    <mat-card-content>
+      <div>
+        <mat-form-field style="display: contents;">
+          <input matInput placeholder="Input">
+        </mat-form-field>
+
+        <mat-form-field style="display: contents;">
+          <input matInput placeholder="Input 2">
+        </mat-form-field>
+
+        <mat-form-field style="display: contents;">
+          <mat-select placeholder="Select">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-margin">
+    <mat-card-title>
+      Form Field With Label
+    </mat-card-title>
+    <mat-card-content>
+      <div>
+        <form  [formGroup]="options">
+          <mat-checkbox formControlName="hideRequired">Hide required marker</mat-checkbox>
+          <div>
+            <label>Float label: </label>
+            <mat-radio-group formControlName="floatLabel">
+              <mat-radio-button value="auto">Auto</mat-radio-button>
+              <mat-radio-button value="always">Always</mat-radio-button>
+              <mat-radio-button value="never">Never</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </form>
+
+        <mat-form-field style="display: contents;"
+          [hideRequiredMarker]="options.value.hideRequired"
+          [floatLabel]="options.value.floatLabel">
+          <input matInput placeholder="Simple placeholder" required>
+        </mat-form-field>
+
+        <mat-form-field style="display: contents;" [floatLabel]="options.value.floatLabel">
+          <mat-label>Both a label and a placeholder</mat-label>
+          <input matInput placeholder="Simple placeholder">
+        </mat-form-field>
+
+        <mat-form-field style="display: contents;"
+          [hideRequiredMarker]="options.value.hideRequired"
+          [floatLabel]="options.value.floatLabel">
+          <mat-select required>
+            <mat-option>-- None --</mat-option>
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+          <mat-label>
+            <mat-icon>favorite</mat-icon>
+            <b> Fancy</b> <i> label</i></mat-label>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-margin">
+    <mat-card-title>
+      Form Field With Error Messages
+    </mat-card-title>
+    <mat-card-content>
+      <div >
+        <mat-form-field style="display: contents">
+          <input matInput placeholder="Enter your email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-margin">
+    <mat-card-title>
+      Select for Forms
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field >
+        <input matInput placeholder="Banks" aria-label="banks" [matAutocomplete]="auto" [formControl]="bankControl">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank.id">
+            <span>{{bank.name}}</span> |
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <p style="color:red">**It is not useless.<br/> Can not support inline search!!!</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-margin">
+    <mat-card-title>
+      @ng-select/ng-select - Multi Select With Searches
+    </mat-card-title>
+    <mat-card-content>
+      <p style="color:red">**This is useful for search and infinity select.</p>
+
+      <ng-select
+        [items]="people"
+        [multiple]="true"
+        bindLabel="name"
+        groupBy="gender"
+        [selectableGroup]="true"
+        [closeOnSelect]="false"
+        bindValue="id"
+        [(ngModel)]="selectedPeople">
+        <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+          <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.gender | uppercase}}
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+          <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}
+        </ng-template>
+      </ng-select>
+
+      <br>
+      <small>{{selectedPeople | json}}</small>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-margin">
+    <mat-card-title>
+      @ng-select/ng-select - Virtual Scroll
+    </mat-card-title>
+    <mat-card-content>
+      <ng-select [items]="photosBuffer"
+                 [virtualScroll]="true"
+                 [loading]="loading"
+                 bindLabel="title"
+                 bindValue="thumbnailUrl"
+                 placeholder="Select photo"
+                 appendTo="body"
+                 (scroll)="onScroll($event)"
+                 (scrollToEnd)="onScrollToEnd()">
+        <ng-template ng-header-tmp>
+          <small class="form-text text-muted">Loaded {{photosBuffer.length}} of {{photos.length}}</small>
+        </ng-template>
+        <ng-template ng-option-tmp let-item="item" let-index="index">
+          <b>{{index}}</b> {{item.title}}
+        </ng-template>
+      </ng-select>
+    </mat-card-content>
+  </mat-card>
+</div>
+

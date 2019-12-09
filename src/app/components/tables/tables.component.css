@@ -1,0 +1,98 @@
+.mat-card{
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+table {
+  width: 100%;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.container {
+  height: 400px;
+  overflow: auto;
+  width: 100%;
+}
+
+.example-container {
+  height: 270px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.mat-table-sticky {
+  border-top: 1px solid #e0e0e0;
+}
+/*Sticky columns CSS*/
+.sticky-container {
+  height: 400px;
+  width: 550px;
+  overflow: auto;
+}
+
+.sticky-table {
+  width: 800px;
+}
+
+td.mat-column-star {
+  width: 20px;
+  padding-right: 8px;
+}
+
+th.mat-column-position, td.mat-column-position {
+  padding-left: 8px;
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky:last-child {
+  border-left: 1px solid #e0e0e0;
+}
+
+/*sticky header*/
+.header-container {
+  height: 400px;
+  overflow: auto;
+}
+
+.table-header {
+  width: 100%;
+}
+/*Pagination Sorting Filtering Table*/
+.all-table {
+  width: 100%;
+}
+
+.all-table.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.all-table.td, .all-table.th {
+  width: 25%;
+}
+/*Mat Tab Active Styles*/
+::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+  background-color: #5B22C9;
+  font-weight: 700;
+  color: white;
+  opacity: 1;
+  border-radius: 10px 10px 0 0;
+}
+::ng-deep .mat-tab-header {
+  border-bottom: none;
+}

@@ -1,0 +1,24 @@
+.message-box{
+  padding: 16px;
+  background: #607d8b;
+  border-left: 6px solid #37474f;
+  color: #fff;
+}
+.message-box.error{
+  background: #ef5350;
+  border-left-color: #b71c1c;
+}
+.message-box.warning{
+  background: #ffecb3;
+  border-left-color: #ffc107;
+  color: rgba(0,0,0,.87);
+}
+.message-box.success{
+  background: #4caf50;
+  border-left-color: #2e7d32;
+}
+.message-box.info{
+  background: #b3e5fc;
+  border-left-color: #03a9f4;
+  color: rgba(0,0,0,.87);
+}

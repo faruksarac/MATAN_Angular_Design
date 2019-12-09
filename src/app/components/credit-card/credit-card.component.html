@@ -1,0 +1,82 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box" style="margin-top: 30px; max-width: 390px; border-radius: 20px; box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);">
+    <mat-card-content>
+      <div class="card" style="margin-top: -100px; " #card>
+        <div class="card__front card__part" [ngStyle]="myStyles">
+          <img class="card__front-square card__square"
+               src="https://image.ibb.co/cZeFjx/little_square.png">
+          <img class="card__front-logo card__logo"
+               src="https://cdn.visa.com/cdn/assets/images/logos/visa/logo.png">
+          <p class="card_numer" *ngIf="cardNumber !== null">{{splitCardNumber(cardNumber)}}</p>
+          <p class="card_numer" *ngIf="cardNumber === null">****-****-****-****</p>
+          <div class="card__space-75">
+            <span class="card__label">Card holder</span>
+            <p class="card__info" *ngIf="cardHolder !== null">{{cardHolder | slice: 0:35}}</p>
+            <p class="card__info" *ngIf="cardHolder === null || cardHolder.length === 0">**** ****</p>
+          </div>
+          <div class="card__space-25">
+            <span class="card__label">Expires</span>
+            <p class="card__info" *ngIf="selectedMonth !== null && selectedYear !== null">{{selectedMonth}}
+              /{{sliceYear(selectedYear)}}</p>
+            <p class="card__info" *ngIf="selectedMonth === null && selectedYear !== null">
+              **/{{sliceYear(selectedYear)}}</p>
+            <p class="card__info" *ngIf="selectedMonth !== null && selectedYear === null">{{selectedMonth}}/**</p>
+            <p class="card__info" *ngIf="selectedMonth === null && selectedYear === null">**/**</p>
+          </div>
+        </div>
+        <div class="card__back card__part" [ngStyle]="myStyles">
+          <div class="card__black-line"></div>
+          <div class="card__back-content">
+            <div class="card__secret">
+              <p class="card__secret--last" *ngIf="cvvCode !== null">{{cvvCode}}</p>
+              <p class="card__secret--last" *ngIf="cvvCode === null">***</p>
+            </div>
+            <img class="card__back-square card__square"
+                 src="https://image.ibb.co/cZeFjx/little_square.png">
+            <img class="card__back-logo card__logo"
+                 src="https://cdn.visa.com/cdn/assets/images/logos/visa/logo.png">
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-content style="display: flex;flex-direction: column; margin-top: 20px">
+      <div>
+        <mat-form-field appearance="outline" class="example-form example-full-width"  >
+          <mat-label>Card Number</mat-label>
+          <input matInput placeholder="Card Number" [(ngModel)]="cardNumber"
+                 onKeyPress="if(this.value.length===16) return false;" type="number" pattern="[0-9]" onkeydown="return event.keyCode !== 69">
+          <!--      <mat-hint>Hint</mat-hint>-->
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="example-form example-full-width">
+          <mat-label>Card Holder</mat-label>
+          <input matInput placeholder="Card Holder" [(ngModel)]="cardHolder">
+        </mat-form-field>
+      </div>
+      <div>
+
+        <mat-form-field appearance="outline" class="example-form example-full-width">
+          <mat-label>Month</mat-label>
+          <mat-select placeholder="Month" [(ngModel)]="selectedMonth">
+            <mat-option *ngFor="let monthItem of month" [value]="monthItem">{{monthItem}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="example-form example-full-width">
+          <mat-label>Year</mat-label>
+          <mat-select placeholder="Year" [(ngModel)]="selectedYear">
+            <mat-option *ngFor="let yearItem of year" [value]="yearItem">{{yearItem}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="example-form example-full-width">
+          <mat-label>CVV Code</mat-label>
+          <input matInput placeholder="CVV" [(ngModel)]="cvvCode" onKeyPress="if(this.value.length===4) return false;"
+                 type="number"  (focus)="cvvActive()" (focusout)="cvvDeactive()">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <div>
+      <button mat-raised-button  class="btn-block submit-button">Submit</button>
+    </div>
+  </mat-card>
+</div>

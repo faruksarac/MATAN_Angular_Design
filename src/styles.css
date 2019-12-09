@@ -1,1 +1,185 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat|Quicksand&display=swap');
+
+html,
+body {
+  height: 100%;
+  /*margin: 0;*/
+  padding: 0;
+  /*margin-top: 222px;*/
+}
+
+body {
+  /*background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);*/
+  /*background-image: url(https://pixabay.com/get/54e7d0464352ad14f6d1867dda6d49214b6ac3e45656704b742d7dd197/sea-2755901_1920.jpg?attachment);*/
+  background-image: url(./images/Asset4.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  /*font-family: 'Montserrat', sans-serif;*/
+  /*font-family: 'Quicksand', sans-serif;*/
+  font-family: 'Comfortaa', cursive;
+  outline: none !important;
+}
+
+.app-header {
+  background: #a0a0a000;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+.login-wrapper {
+  height: 100%;
+}
+
+.nav_brand {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.box {
+  position: relative;
+  top: 0;
+  opacity: 1;
+  float: left;
+  padding: 60px 50px 40px 50px;
+  width: 100%;
+  background: #fff;
+  border-radius: 30px !important;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  z-index: 5;
+  max-width: 330px;
+}
+
+.box.back {
+  transform: scale(.95);
+  -webkit-transform: scale(.95);
+  -ms-transform: scale(.95);
+  top: -20px;
+  opacity: .8;
+  z-index: -1;
+}
+
+
+.login-wrapper .example-form {
+  min-width: 100%;
+  max-width: 300px;
+  width: 100%;
+}
+
+.login-wrapper .example-full-width,
+.login-wrapper .btn-block {
+  width: 100%;
+}
+
+.login-wrapper mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+
+.login-wrapper mat-card-header mat-card-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+.login-wrapper .mat-card {
+  padding: 0 36px 18px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.login-wrapper .mat-stroked-button {
+  border: 1px solid currentColor;
+  /*line-height: 54px;*/
+  background: #FFF7FA;
+}
+
+.login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0.8375em 0;
+}
+
+.card-img {
+  background-image: url(images/Asset6.png);
+  background-size: cover;
+  object-fit: cover;
+  border-radius: 30px 30px 0 0;
+  width: auto !important;
+  height: 209px !important;
+  margin: 0 -36px 18px -36px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sms-img {
+  background-image: url(images/sms.png) !important;
+}
+
+.material-icons {
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.flex-container-card{
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.top-header-bar {
+  height: 160px !important;
+  min-height: 160px !important;
+  max-height: 160px !important;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center flex-start;
+  align-items: center;
+  background: rgb(160, 40, 166);
+  background: linear-gradient(90deg, rgba(160, 40, 166, 1) 11%, rgba(255, 136, 86, 1) 80%);
+  color: #fff !important;
+  padding: 40px !important;
+}
+
+.main-card {
+  margin: 111px 30px 0 30px;
+  min-height: calc(100% - 50px);
+  padding: 30px;
+  background-color: #F5F5F5;
+}
+.icon-size{
+  transform: scale(1.5);
+}

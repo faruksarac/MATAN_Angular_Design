@@ -1,0 +1,65 @@
+.mat-nav-inner-context{
+  width: 200px;
+  padding-left: 15px;
+}
+.mat-nav{
+  /*padding-right: 18px;*/
+  background-image: url("src/images/Asset2.png");
+  background-size: cover;
+  height: 55px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 16px;
+}
+.left-sidebar{
+  background-color: #5D23CD;
+  color:white;
+  padding:15px;
+  height: 65px ;
+}
+.left-sidebar-text{
+  margin-left: 50px;
+  margin-top: 8px
+}
+.user-menu{
+  background: #c9c9c9;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.is-active {
+  background-color: rgba(93,35,205,0.8);
+  color: white;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.mat-list-item:hover{
+  background-color: lightgray;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.spacer
+{
+flex-grow: 1;
+}
+.icon-margin{
+  margin:5px;
+}
+/*Search Bar*/
+.search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 500px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: white;
+  font-size: initial;
+  margin-right: 5px;
+}
+
+.form-field {
+  min-width: 60px;
+  flex: 1 auto;
+}
+

@@ -1,0 +1,123 @@
+<!-- Toolbar -->
+<mat-sidenav-container style="background: transparent">
+  <mat-sidenav #sidenav>
+    <div class="left-sidebar">
+      <p class="justify-content-center left-sidebar-text">MENU</p>
+    </div>
+    <mat-nav-list class="mat-nav-inner-context">
+      <a mat-list-item [routerLink]="'/headers'" (click)="sidenav.toggle()" [routerLinkActive]="['is-active']">
+        <mat-icon class="icon-margin">text_fields</mat-icon>
+        Typography </a>
+      <a mat-list-item [routerLink]="'/forms'" [routerLinkActive]="['is-active']" (click)="sidenav.toggle()">
+        <mat-icon class="icon-margin">description</mat-icon>
+        Forms</a>
+      <a mat-list-item [routerLink]="'/charts'" (click)="sidenav.toggle()" [routerLinkActive]="['is-active']">
+        <mat-icon class="icon-margin">show_chart</mat-icon>
+        Charts</a>
+      <a mat-list-item [routerLink]="'/tables'" (click)="sidenav.toggle()" [routerLinkActive]="['is-active']">
+        <mat-icon class="icon-margin">table_chart</mat-icon>
+        Tables</a>
+      <a mat-list-item [routerLink]="'/payment'" (click)="sidenav.toggle()" [routerLinkActive]="['is-active']">
+        <mat-icon class="icon-margin">credit_card</mat-icon>
+        Payment</a>
+      <a mat-list-item [routerLink]="'/dragDrop'" (click)="sidenav.toggle()" [routerLinkActive]="['is-active']">
+        <mat-icon class="icon-margin">input</mat-icon>
+        Drag-Drop</a>
+      <a mat-list-item [routerLink]="'/message-box'" (click)="sidenav.toggle()" [routerLinkActive]="['is-active']">
+        <mat-icon class="icon-margin">message</mat-icon>
+        Message Box</a>
+      <a mat-list-item [routerLink]="'/404'" (click)="sidenav.toggle()" [routerLinkActive]="['is-active']">
+        <mat-icon class="icon-margin">error</mat-icon>
+        Not Found</a>
+      <a mat-list-item (click)="sidenav.toggle()">Close</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="app-header mat-nav">
+      <mat-toolbar-row style="justify-content: space-between">
+
+        <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle()" style="color: white">menu</mat-icon>
+        </button>
+        <div>
+          <button mat-button [routerLink]="'/login'" style="color: white">MATAN</button>
+        </div>
+        <div class="nav-tool-items flex-container">
+
+          <div class="search-box mat-elevation-z2" #searchBox *ngIf="clickedSearchButton" [@fadeInOnEnter] [@fadeOutOnLeave]>
+            <button mat-button mat-icon-button
+                    matTooltip="Search">
+              <mat-icon>search</mat-icon>
+            </button>
+            <mat-form-field
+              class="form-field"
+              [floatLabel]="'never'">
+              <input matInput type="text" placeholder="Search"
+                     (keyup.enter)="OnSearch()"/>
+            </mat-form-field>
+            <button mat-button mat-icon-button (click)="clickedSearchButton = false"
+                    matTooltip="Close">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+          <button mat-icon-button (click)="clickedSearchButton = true" *ngIf="!clickedSearchButton" style="color:white; margin-right:5px" [@bounceInRight] >
+            <mat-icon>search</mat-icon>
+          </button>
+          <button mat-flat-button class="flex-container" [matMenuTriggerFor]="menu"
+                  style="height: 48px; border-radius: 10px; background: rgba(255,255,255,0.5);">
+            <mat-icon style="transform: scale(1.5); margin-right: 10px">account_circle</mat-icon>
+            User Name
+            <mat-icon>expand_more</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item>
+              <mat-icon>person</mat-icon>
+              <span>Profile</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+          <!--          <span class="spacer"></span>-->
+          <!--          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">-->
+          <!--            <mat-icon class="icon-size" style="color: white">account_circle</mat-icon>-->
+          <!--            User Name-->
+          <!--            <mat-icon class="icon-size" style="color: white">expand_more</mat-icon>-->
+          <!--          </button>-->
+          <!--          <mat-menu #menu="matMenu">-->
+          <!--            <button mat-menu-item disabled class="user-menu">-->
+          <!--              <mat-icon class="icon-size" style="color: #4d1da8">account_circle</mat-icon>-->
+          <!--              <span style="color: #4d1da8; font-weight: bold">User Name</span>-->
+          <!--            </button>-->
+          <!--            <button mat-menu-item>-->
+          <!--              <mat-icon>person</mat-icon>-->
+          <!--              <span>Profile</span>-->
+          <!--            </button>-->
+          <!--            <button mat-menu-item>-->
+          <!--              <mat-icon>exit_to_app</mat-icon>-->
+          <!--              <span>Logout</span>-->
+          <!--            </button>-->
+          <!--          </mat-menu>-->
+        </div>
+
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!--Page Main Content-->
+    <!--    <div class="top-header-bar" style="margin:110px 30px 0 30px">-->
+    <!--      <div class="row">-->
+    <!--        <mat-icon>home</mat-icon>-->
+    <!--        <mat-icon> chevron_right</mat-icon>-->
+    <!--        <p>Switches</p>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <div style="height: 88vh;">
+      <mat-card class="main-card">
+        <mat-card-content>
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
